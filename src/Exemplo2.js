@@ -1,11 +1,12 @@
 import React from "react";
 
-function Exemplo1(){
+function Exemplo2(){
   const name = "Fulano";
   const random = Math.random();
   const ativo = true;
   return (
     <React.Fragment> {/* Parent. Poderia ser uma tag(div,section) ou </></>; Dessa forma não gera tag no DOM */}
+      <h1>Interpolações de variaveis e constantes</h1>
       <div>Name: {name} </div>
       <div>Random: {random}</div>
       <label htmlFor='inputThink'>Form</label> {/* As propriedades do JSX seguem sua própria convenção. Não seguinto completamente as especificação de nomes do HTML */}
@@ -15,4 +16,4 @@ function Exemplo1(){
   );
 }
 
-export default Exemplo1;
+export default Exemplo2;

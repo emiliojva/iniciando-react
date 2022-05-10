@@ -1,14 +1,18 @@
 import React from 'react';
 import Exemplo1 from "./Exemplo1";
 import Exemplo2 from "./Exemplo2";
+import Exemplo3 from "./Exemplo3";
 
 
 function App() {
 
   return (
     <React.Fragment> {/* Isso Não gera TAG pai(div,section ...) Adicional no DOM */} 
-      <Exemplo1 /> 
+      <Exemplo3 /> 
+      <hr />
       <Exemplo2 />
+      <hr />
+      <Exemplo1 /> 
     </React.Fragment>
   );
 };
