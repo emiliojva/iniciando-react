@@ -7,6 +7,9 @@ function Exemplo1(){
       <a className="ativo" href="https://reactjs.org/docs/introducing-jsx.html#embedding-expressions-in-jsx" title="Isso é um link">
         React JS - Embedding Expressions in JSX 
       </a>
+      <p>
+        <a href="https://reactjs.org/docs/introducing-jsx.html#specifying-children-with-jsx">Envolvendo elementos filhos</a>
+      </p>
     </React.Fragment>
   );
 }
