@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React - Hooks</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+</head>
+<body>
+  
+  <div id="app">App</div>
+
+  <script type="text/babel">
+
+    const Compras = () => {
+      
+      /**
+       * Uso default de uma hook para sinalizar mudança de estados. 
+       * const contador = React.useState(0);
+       * returns [o valor passado, function dispatchAction()]
+       * 
+       * podemos usar http://es6-features.org/#ArrayMatching para desestruturar melhor
+       */ 
+      const [contador, setContador] = React.useState(0);
+
+      function comprar() {
+        setContador(contador + 1);
+      }
+
+      console.log(contador,setContador);
+
+
+      return (
+        <div>
+          <button onClick={comprar}>Comprar</button> 
+          <p>Total: {contador}</p>
+          <p>Preço: R$ {contador * 250}</p>
+        </div>
+      );
+
+    };
+
+    // const [count, setCount] = React.useState(0);
+
+
+   
+
+
+
+    function App() {
+
+      return (
+        <div>
+          <Compras />
+        </div>
+      );
+      
+    }
+
+    ReactDOM.render(<App />, document.getElementById('app'));
+    
+  </script>
+</body>
+</html>
