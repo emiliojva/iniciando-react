@@ -336,4 +336,7 @@ return (
 );
 ```
 
+## Vscode - Extensões
+- prettier : organizar automaticamente o código JSX quando um arquivo for salvo(ctrl + S) no VSCODE.
+
 > Written with [StackEdit](https://stackedit.io/).
