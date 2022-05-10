@@ -3,19 +3,31 @@ import Exemplo1 from "./Exemplo1";
 import Exemplo2 from "./Exemplo2";
 import Exemplo3 from "./Exemplo3";
 import Exercicio1 from "./exercicios/01-compras";
+import Arrays from './Arrays';
+import ExercicioArraysProdutos from './exercicios/02-arrays';
 
 
 function App() {
 
   return ( 
     <React.Fragment> {/* Isso Não gera TAG pai(div,section ...) Adicional no DOM */} 
+
+      <ExercicioArraysProdutos />
+      <Arrays />
+      
+      
+      {/* 
+      <hr />
+      Parte 1 dos estudos
+      <hr />
       <Exercicio1 /> 
       <hr />
       <Exemplo3 /> 
       <hr />
       <Exemplo2 />
       <hr />
-      <Exemplo1 /> 
+      <Exemplo1 />  
+      */}
     </React.Fragment>
   );
 };
