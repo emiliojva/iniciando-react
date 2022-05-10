@@ -152,6 +152,41 @@ Webpack
     https://webpack.js.org/
 
 
+
+## Ambiente Desenvolvimento
+
+A instalação padrão trás arquivos demais, que inicialmente não vamos utilizar. Em sua maioria para testes unitários. Pensando nisso vamos sanitizar o ambiente inicial:
+
+1. Instale o React seguindo a recomendação da própria documentação `https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains`, basicamente utilizando o comando ```npx create-react-app <nome-do-app>```.
+2. Dentro da pasta `src`, deixe apenas os arquivos `App.js` e `index.js` e crie um arquivo `style.css`(funcionará como um reset do css inicial) dentro da pasta `public/`. Ficando conforme abaixo a estrutura inicial:
+   - public/
+     - index.html
+     - style.css
+   - src/
+     - App.js
+     - Index.js
+    - README.me
+3. Utilizando-se do poder do editor Vscode, vamos criar um arquivo de configuração default do projeto. Para isso criar uma pasta chamada `.vscode` e entro dela crie um arquivo chamado `settings.json`. copie e cole o trecho de código: 
+    ``` 
+    {
+      "git.enabled": true,
+      "files.exclude": {
+        "node_modules": true,
+        ".vscode": true,
+        ".gitignore": true,
+        "package.json": true,
+        "package-lock.json": true,
+        "public": true
+      }
+    }
+    ``` 
+   *O trecho de acima oculta a pasta public do editor. Necessitando alterar algo, precisa abrir pelo gerenciador de arquivos.*
+1. Agora remova todos os imports desnecessários e teste o ambiente executando `npm start` na raiz no projeto.
+
+  
+   
+
+
 ## React Basico 
 
 Nos próximos exemplos, vamos sempre abstrair o `html` do nosso `helloWorld`, mudando apenas o conteudo dentro da tag `script>`.
