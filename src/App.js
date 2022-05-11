@@ -1,11 +1,12 @@
 import React from 'react';
-import Exemplo1 from "./01-Exemplo1";
-import Exemplo2 from "./02-Exemplo2";
-import Exemplo3 from "./03-Exemplo3";
+import Exemplo1 from "./01-JSX/Exemplo1";
+import Exemplo2 from "./02-JSX/Exemplo2";
+import Exemplo3 from "./03-JSX/Exemplo3";
 import Exercicio1 from "./exercicios/01-compras";
-import Arrays from './04-Arrays';
+import Arrays from './04-Arrays/Arrays';
 import ExercicioArraysProdutos from './exercicios/02-arrays';
-import Eventos from './05-Eventos';
+import Eventos from './05-Eventos/Eventos';
+import Componenetes from './06-Componentes/Componentes';
 
 
 function App() {
@@ -13,8 +14,11 @@ function App() {
   return ( 
     <React.Fragment> {/* Isso Não gera TAG pai(div,section ...) Adicional no DOM */} 
 
+      {/* Componenetes */}
+      <Componenetes />
+
       {/* Eventos */}
-      <Eventos />
+      {/* <Eventos /> */}
       
       {/* Arrays JSX */}
       {/* <ExercicioArraysProdutos />
@@ -41,6 +45,9 @@ export default App;
 
 
 /**
+ * JSX = JavaScript XML / Extension. 
+ * Estende a sintaxe do JavaScript, introduzindo elementos como XML que são convertidos em funções de React.
+ ***********************************************************************************************************
  * Convencoes 
  * - Return do JSX quando houver quebra de linha ou mais de um elemento necessida do uso de brackets return ( exp... )
  * - O atributos usados nos elementos do JSX são atributos próprios, e não do HTML. Usa-se padrão camelCase. <input className="anythink" />
@@ -51,11 +58,5 @@ export default App;
  *          <minhasTags/> 
  *        </React.Fragment>
  *        <!-- vantagem disso: Ele não gera uma tag a mais no DOM. Apenas aplica as tags <minhasTags/> no document. Ele também aceita apenas </>....</>-->
- * 
- * 
- * 
- * -
- * 
- * 
- * 
+ ***********************************************************************************************************
  */
