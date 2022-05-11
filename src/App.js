@@ -1,10 +1,11 @@
 import React from 'react';
-import Exemplo1 from "./Exemplo1";
-import Exemplo2 from "./Exemplo2";
-import Exemplo3 from "./Exemplo3";
+import Exemplo1 from "./01-Exemplo1";
+import Exemplo2 from "./02-Exemplo2";
+import Exemplo3 from "./03-Exemplo3";
 import Exercicio1 from "./exercicios/01-compras";
-import Arrays from './Arrays';
+import Arrays from './04-Arrays';
 import ExercicioArraysProdutos from './exercicios/02-arrays';
+import Eventos from './05-Eventos';
 
 
 function App() {
@@ -12,8 +13,12 @@ function App() {
   return ( 
     <React.Fragment> {/* Isso Não gera TAG pai(div,section ...) Adicional no DOM */} 
 
-      <ExercicioArraysProdutos />
-      <Arrays />
+      {/* Eventos */}
+      <Eventos />
+      
+      {/* Arrays JSX */}
+      {/* <ExercicioArraysProdutos />
+      <Arrays /> */}
       
       
       {/* 

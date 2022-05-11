@@ -29,12 +29,17 @@ function ExercicioArraysProdutos(){
         produtos
           .filter( ( {preco} ) => Number(preco.replace('R$','')) > 1500)
           .map( ( {nome,preco,cores} ) => {
-            return  <div>
+            return  <div key={nome}>
                       <h1>{nome}</h1>
                       <p>Preço: {preco}</p>
-                      {
-                        cores.map( (cor) => <p style={{backgroundColor: cor, color: '#fff', marginLeft:"35px"}}>{cor}</p> )
-                      }
+                      <ul>
+                        {
+                          cores.map( (cor) => (
+                            <li key={cor} style={{backgroundColor: cor, color: '#fff'}}>
+                              {cor}
+                            </li> 
+                        ))}
+                      </ul>
 
                     </div>
           })
