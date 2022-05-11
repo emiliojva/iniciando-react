@@ -8,6 +8,7 @@ import ExercicioArraysProdutos from './exercicios/02-arrays';
 import Eventos from './05-Eventos/Eventos';
 import Componenetes from './06-Componentes/Componentes';
 import Propriedades from './07-propriedades/Propriedades';
+import { DesafioCompomente } from './exercicios/desafio/DesafioCompomente';
 
 
 function App() {
@@ -17,8 +18,11 @@ function App() {
 
       {/* Descomente os tópicos anteriores para testar individualmente os exemplos */}
 
+      {/* Desafio Componenetes */}
+      <DesafioCompomente />
+
       {/* Propriedades */}
-      <Propriedades />
+      {/* <Propriedades /> */}
       
 
       {/* Componenetes */}
