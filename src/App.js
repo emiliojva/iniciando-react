@@ -7,6 +7,7 @@ import Arrays from './04-Arrays/Arrays';
 import ExercicioArraysProdutos from './exercicios/02-arrays';
 import Eventos from './05-Eventos/Eventos';
 import Componenetes from './06-Componentes/Componentes';
+import Propriedades from './07-propriedades/Propriedades';
 
 
 function App() {
@@ -14,8 +15,14 @@ function App() {
   return ( 
     <React.Fragment> {/* Isso Não gera TAG pai(div,section ...) Adicional no DOM */} 
 
+      {/* Descomente os tópicos anteriores para testar individualmente os exemplos */}
+
+      {/* Propriedades */}
+      <Propriedades />
+      
+
       {/* Componenetes */}
-      <Componenetes />
+      {/* <Componenetes /> */}
 
       {/* Eventos */}
       {/* <Eventos /> */}

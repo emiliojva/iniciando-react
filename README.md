@@ -337,6 +337,9 @@ return (
 ```
 
 ## Vscode - Extensões
-- prettier : organizar automaticamente o código JSX quando um arquivo for salvo(ctrl + S) no VSCODE.
+- prettier : organizar automaticamente o código JSX quando um arquivo for salvo(ctrl + S) no VSCODE. 
+  - https://prettier.io/docs/en/editors.html#visual-studio-code
+  - https://github.com/prettier/prettier-vscode
+- React Snnipets: Gerar códigos corriqueiros rapidamente. https://github.com/dsznajder/vscode-react-javascript-snippets
 
 > Written with [StackEdit](https://stackedit.io/).
