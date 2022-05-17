@@ -11,7 +11,7 @@ import Propriedades from './07-propriedades/Propriedades';
 import { DesafioCompomente } from './exercicios/desafio/DesafioCompomente';
 
 
-function App() {
+export default function AppBasico() {
 
   return ( 
     <React.Fragment> {/* Isso Não gera TAG pai(div,section ...) Adicional no DOM */} 
@@ -51,8 +51,6 @@ function App() {
     </React.Fragment>
   );
 };
-
-export default App;
 
 
 /**
