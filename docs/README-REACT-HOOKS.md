@@ -29,6 +29,8 @@ O React tem alguns tipos diferentes de componentes, mas começaremos com as subc
 
 > Resumindo: ***
 
+***
+
 
 ### Hooks
 
@@ -79,6 +81,7 @@ Aplicativos com javascript precisam de um gatilho para dizer que algo mudou. Exe
 </script>
 ```
 
+***
 
 ## React.useState
 O useState é uma função que retorna uma Array com 2 valores. O primeiro valor guarda o dado do estado atual, pode ser qualquer tipo de dado como strings, arrays, números, boolean, null, undefined e objetos. O segundo valor é uma função que pode ser utilizada para modificarmos o estado do primeiro valor.
@@ -119,6 +122,78 @@ O useState é uma função que retorna uma Array com 2 valores. O primeiro valor
     )
   }
   ```
+
+***
+
+  ## Desafio 
+
+    // Os links abaixo puxam dados de um produto em formato JSON
+    // https://ranekapi.origamid.dev/json/api/produto/tablet
+    // https://ranekapi.origamid.dev/json/api/produto/smartphone
+    // https://ranekapi.origamid.dev/json/api/produto/notebook
+    // Crie uma interface com 3 botões, um para cada produto.
+    // Ao clicar no botão faça um fetch a api e mostre os dados do produto na tela.
+    // Mostre apenas um produto por vez
+    // Mostre a mensagem carregando... enquanto o fetch é realizado
+
+
+#### Exercício Solução
+
+```jsx
+import React from 'react';
+import Produto from './Produto';
+
+const App = () => {
+  const [dados, setDados] = React.useState(null);
+  const [carregando, setCarregando] = React.useState(null);
+
+  async function handleClick(event) {
+    setCarregando(true);
+    const response = await fetch(
+      `https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`,
+    );
+    const json = await response.json();
+    setDados(json);
+    setCarregando(false);
+  }
+
+  return (
+    <>
+      <button onClick={handleClick}>smartphone</button>
+      <button onClick={handleClick}>tablet</button>
+      <button onClick={handleClick}>notebook</button>
+      {carregando && <p>Carregando...</p>}
+      {!carregando && dados && <Produto dados={dados} />}
+    </>
+  );
+};
+
+export default App;
+```
+
+#### Produto.js
+
+
+```jsx
+import React from 'react';
+
+const Produto = ({ dados }) => {
+  return (
+    <div>
+      <h1>{dados.nome}</h1>
+      <p>R$ {dados.preco}</p>
+      <img src={dados.fotos[0].src} alt={dados.fotos[0].titulo} />
+    </div>
+  );
+};
+
+export default Produto;
+```
+
+
+
+
+***
 
 
 ## Regras de hooks
