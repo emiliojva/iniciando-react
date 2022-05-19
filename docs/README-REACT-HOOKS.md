@@ -196,6 +196,156 @@ export default Produto;
 ***
 
 
+## React Hooks - useEffect
+
+> **useEffect**
+
+  Todo componente possui um ciclo de vida. Os principais momentos acontecem quando o componente é renderizado, atualizado ou destruído. Com o React.useEffect() podemos definir um callback que irá ser executado durante certos momentos do ciclo de vida do componente.
+
+```jsx
+const App = () => {
+  const [contar, setContar] = React.useState(0);
+
+  React.useEffect(() => {
+    console.log('Ocorre ao renderizar e ao atualizar');
+  });
+
+  return <button onClick={() => setContar(contar + 1)}>{contar}</button>;
+};
+```
+
+***
+
+### Array de Dependências
+
+No useEffect podemos definir dois argumentos, o primeiro é a função de callback que será executada, o segundo é uma array com uma lista de dependências. A lista de dependências serve para informarmos quando o efeito deve ocorrer.
+
+```jsx
+const App = () => {
+  const [contar, setContar] = React.useState(0);
+  // Uma Array vazia indica que o efeito não possui nenhum dependência,
+  // assim o mesmo só irá ocorrer quando o componente é renderizado inicialmente (montado)
+  // O efeito ocorre logo após a renderização do mesmo
+  React.useEffect(() => {
+    console.log('Apenas quando renderiza');
+  }, []);
+
+  // Antes de renderizar e toda vez que atualizar o componente
+  console.log('Sempre ocorre, mas antes do useEffect');
+
+  // Agora a dependência está no estado contar,
+  // assim sempre que contar for atualizar este efeito será ativado
+  React.useEffect(() => {
+    console.log('Toda vez que atualiza o contar');
+  }, [contar]);
+
+  return <button onClick={() => setContar(contar + 1)}>{contar}</button>;
+};
+```
+
+***
+
+### Dependências Obrigatórias
+
+Se utilizarmos o valor de um hook ou propriedade dentro de um efeito, ele irá indicar a necessidade de definirmos o mesmo como uma dependência na array.
+
+```jsx
+const App = () => {
+  const [contar, setContar] = React.useState(0);
+
+  const titulo = 'Clicou ';
+
+  React.useEffect(() => {
+    document.title = titulo + contar;
+    // O ESLint irá indicar que você possui uma dependência não declarada (contar)
+  }, []);
+
+  return <button onClick={() => setContar(contar + 1)}>{contar}</button>;
+};
+```
+
+***
+
+## Desafio
+
+
+    // Quando o usuário clicar em um dos botões, faça um fetch do produto clicado utilizando a api abaixo
+    // https://ranekapi.origamid.dev/json/api/produto/notebook
+    // https://ranekapi.origamid.dev/json/api/produto/smartphone
+    // Mostre o nome e preço na tela (separe essa informação em um componente Produto.js)
+    // Defina o produto clicado como uma preferência do usuário no localStorage
+    // Quando o usuário entrar no site, se existe um produto no localStorage, faça o fetch do mesmo
+
+#### Exercício Solução
+
+##### App.js
+
+```jsx
+import React from 'react';
+import Produto from './Produto';
+
+const App = () => {
+  const [produto, setProduto] = React.useState(null);
+
+  React.useEffect(() => {
+    const produtoLocal = window.localStorage.getItem('produto');
+    if (produtoLocal !== 'null') setProduto(produtoLocal);
+  }, []);
+
+  React.useEffect(() => {
+    if (produto !== null) window.localStorage.setItem('produto', produto);
+  }, [produto]);
+
+  function handleClick({ target }) {
+    setProduto(target.innerText);
+  }
+
+  return (
+    <div>
+      <h1>Preferência: {produto}</h1>
+      <button style={{ marginRight: '1rem' }} onClick={handleClick}>
+        notebook
+      </button>
+      <button onClick={handleClick}>smartphone</button>
+      <Produto produto={produto} />
+    </div>
+  );
+};
+
+export default App;
+```
+
+##### Produto.js
+
+```jsx
+import React from 'react';
+
+const Produto = ({ produto }) => {
+  const [dados, setDados] = React.useState(null);
+
+  React.useEffect(() => {
+    if (produto !== null) {
+      fetch(`https://ranekapi.origamid.dev/json/api/produto/${produto}`)
+        .then((response) => response.json())
+        .then((json) => setDados(json));
+    }
+  }, [produto]);
+
+  if (dados === null) return null;
+  return (
+    <div>
+      <h1>{dados.nome}</h1>
+      <p>R$ {dados.preco}</p>
+    </div>
+  );
+};
+
+export default Produto;
+```
+
+
+
+
 ## Regras de hooks
 
 Existem regras de hooks que descrevem o padrão de código característico em que os hooks dependem. É a maneira moderna de lidar com o estado com o React. Hooks só devem ser chamados no nível superior (não dentro de loops ou instruções if). Hooks só devem ser chamados de componentes de função React e hooks customizados, não funções normais ou componentes de classe.
