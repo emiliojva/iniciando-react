@@ -431,6 +431,56 @@ const App = () => {
 
 ***
 
+## React.useMemo()
+
+useMemo
+Memoriza um valor, evitando a recriação do mesmo todas as vezes em que um componente for atualizado. Recebe um callback e uma array de dependências.
+
+```jsx
+const App = () => {
+  const [contar, setContar] = React.useState(0);
+  const valor = React.useMemo(() => {
+    const localStorageItem = window.localStorage.getItem('produto');
+    // só será executado uma vez
+    console.log('teste');
+    return localStorageItem;
+  }, []);
+  console.log(valor);
+
+  return <button onClick={() => setContar(contar + 1)}>{valor}</button>;
+};
+```
+
+*Serve para casos em que você faz uma operação lenta para retornar um valor.*
+
+
+***
+
+####useMemo Teste
+
+```jsx
+function operacaoLenta() {
+  let c;
+  for (let i = 0; i < 100000000; i++) {
+    c = i + i / 10;
+  }
+  return c;
+}
+
+const App = () => {
+  const [contar, setContar] = React.useState(0);
+  const t1 = performance.now();
+  const valor = React.useMemo(() => operacaoLenta(), []);
+  // é mais rápido que
+  // const valor = operacaoLenta();
+  console.log(performance.now() - t1);
+
+  return <button onClick={() => setContar(contar + 1)}>{valor}</button>;
+};
+```
+
+***
+
 ## Regras de hooks
 
 Existem regras de hooks que descrevem o padrão de código característico em que os hooks dependem. É a maneira moderna de lidar com o estado com o React. Hooks só devem ser chamados no nível superior (não dentro de loops ou instruções if). Hooks só devem ser chamados de componentes de função React e hooks customizados, não funções normais ou componentes de classe.
