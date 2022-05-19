@@ -3,6 +3,7 @@ import UseStates from './01-useState/UseStates';
 import UseEffects from './02-useEffect/UseEffects';
 import UseRef from './03-useRef/UseRef';
 import UseMemo from './04-useMemo/UseMemo';
+import UseCallback from './05-useCallback/UseCallback';
 
 
 export default class AppHooks extends Component {
@@ -19,7 +20,9 @@ export default class AppHooks extends Component {
 
         {/* <UseRef /> */}
 
-        <UseMemo />
+        {/* <UseMemo /> */}
+
+        <UseCallback />
 
       </div>
       
