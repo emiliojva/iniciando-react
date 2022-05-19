@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UseStates from './01-useState/UseStates';
 import UseEffects from './02-useEffect/UseEffects';
+import UseRef from './03-useRef/UseRef';
 
 
 export default class AppHooks extends Component {
@@ -13,7 +14,9 @@ export default class AppHooks extends Component {
 
         {/* <UseStates /> */}
 
-        <UseEffects />
+        {/* <UseEffects /> */}
+
+        <UseRef />
 
       </div>
       
