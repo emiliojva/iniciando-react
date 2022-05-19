@@ -5,10 +5,10 @@ import AppHooks from './02-react-hooks/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  //<React.StrictMode>
+  // <React.StrictMode>
   <React.Fragment>
     {/* <AppBasico /> */}  {/* App base do 01-react-basico */}
     <AppHooks />           {/* App base do 02-react hooks  */}
   </React.Fragment>
-  //</React.StrictMode>
+  // </React.StrictMode>
 );
