@@ -1,7 +1,8 @@
 import React from 'react'
 
 /**
- * React.useMemo()
+ * React.useCallback()
+ * https://reactjs.org/docs/hooks-reference.html#usecallback
  * ==============
  */
 export default function Exemplo1() {

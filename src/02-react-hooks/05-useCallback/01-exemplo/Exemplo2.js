@@ -1,6 +1,10 @@
 import React from 'react'
 
 /**
+ * 
+ * React.useCallback()
+ * https://reactjs.org/docs/hooks-reference.html#usecallback
+ * 
  * O Set() é utilizado pois ele permite apenas valores únicos dentro do mesmo.
  * Set usa conceito de unicidade de entradas na lista. 
  * Não adiciona item novamente na lista.

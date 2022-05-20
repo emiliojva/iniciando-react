@@ -5,6 +5,7 @@ import UseRef from './03-useRef/UseRef';
 import UseMemo from './04-useMemo/UseMemo';
 import UseCallback from './05-useCallback/UseCallback';
 import UseContext from './06-useContext/UseContext';
+import CustomHooks from './07-customHooks/CustomHooks';
 
 
 export default class AppHooks extends Component {
@@ -25,7 +26,9 @@ export default class AppHooks extends Component {
 
         {/* <UseCallback /> */}
 
-        <UseContext />
+        {/* <UseContext /> */}
+
+        <CustomHooks />
 
       </div>
       
