@@ -8,6 +8,7 @@ import Select from "./03-Select/01-exemplo/Select";
 import SelectDisabled from "./03-Select/02-exemplo/SelectDisabled";
 import Radio from "./04-radios/01-exemplo/Radio";
 import Checkbox from "./05-checkbox/01-exemplo/Checkbox";
+import CheckboxMultiple from "./05-checkbox/02-exemplo/CheckboxMultiple";
 
 export default function AppFormularios() {
   return (
@@ -40,7 +41,9 @@ export default function AppFormularios() {
       {/* Usando Formularios com input[radio] */}
       {/* <Radio /> */}
       {/* Usando Formularios com input[checkbox] */}
-      <Checkbox />
+      {/* <Checkbox /> */}
+      {/* Usando Formularios com input[checkbox] */}
+      <CheckboxMultiple />
     </section>
   );
 }
