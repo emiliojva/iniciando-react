@@ -1,12 +1,13 @@
 import React from "react";
 
-const Input = ({ id, label, type, ...props }) => {
-  return (
-    <div>
-      <label>{label}</label>
-      <input name={id} id={id} type={type} {...props} />
-    </div>
-  );
-};
+const Input = React.forwardRef( ({ id, label, type, ...props },ref) =>{
+
+    return (
+      <div>
+        <label>{label}</label>
+        <input ref={ref} name={id} id={id} type={type} {...props} />
+      </div>
+    );
+})
 
 export default Input;

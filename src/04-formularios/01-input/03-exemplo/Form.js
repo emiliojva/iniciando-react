@@ -15,7 +15,6 @@ const formFields = [
  * Reduce pode ser "REDUZIDO" ao que você mandar no return, que será empilhado
  */
  const stateInitialForm = formFields.reduce( (acumulador, field) => {
-  console.log(acumulador);
   return {...acumulador, [field.id]: ''}; // o valor objeto anterior será desestruturado e adicionará um novo campo junto, com base no valor do ID
 },{}); // currentValue(o primeiro valor do acumulador será {} )
 

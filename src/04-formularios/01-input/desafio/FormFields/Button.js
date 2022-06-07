@@ -1,13 +1,15 @@
 import React from "react";
 
-const Button = ({ children, ...props }) => {
-  console.log("button", props);
-  return (
-    <>
-      <br />
-      <button {...props}>{children}</button>
-    </>
-  );
-};
+const Button = React.forwardRef(
+  ({ id, label, type, children, ...props }, ref) => {
+    console.log("button", props);
+    return (
+      <>
+        <br />
+        <button {...props}>{label || children}</button>
+      </>
+    );
+  }
+);
 
 export default Button;
