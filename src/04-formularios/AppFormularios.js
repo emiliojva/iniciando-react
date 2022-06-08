@@ -12,6 +12,7 @@ import Checkbox from "./05-checkbox/01-exemplo/Checkbox";
 import CheckboxMultiple from "./05-checkbox/02-exemplo/CheckboxMultiple";
 import CheckboxMultipleOp from "./05-checkbox/03-exemplo/CheckboxMultipleOp";
 import ExemploComponenteInput from "./06-componentes/01-Input/ExemploComponenteInput";
+import ExemploComponenteSelect from "./06-componentes/02-Select/ExemploComponenteSelect";
 
 export default function AppFormularios() {
   return (
@@ -30,7 +31,7 @@ export default function AppFormularios() {
       {/*****************************************************/}
       {/* Desafio - Formulário de Contato dinamico e fetch */}
       {/* <DesafioFormContatoPost /> */}
-      <DesafioFormContatoPostWithLazy />
+      {/* <DesafioFormContatoPostWithLazy /> */}
       {/*****************************************************/}
       {/*****************************************************/}
       {/* Usando Formularios com textarea */}
@@ -50,9 +51,10 @@ export default function AppFormularios() {
       {/* <CheckboxMultiple /> */}
       {/* Usando Checkbox otimizadas com arrays de cores */}
       {/* <CheckboxMultipleOp /> */}
-      
-      {/* Processo de Componentizaçao */}
+      {/* Processo de Componentizaçao - Input */}
       {/* <ExemploComponenteInput />       */}
+      {/* Processo de Componentizaçao - Input */}
+      <ExemploComponenteSelect />
     </section>
   );
 }
