@@ -1,6 +1,5 @@
 import React from "react";
 import DynamicFieldLazy from "./DynamicFieldLazy";
-// import Select from "./FormFields/Select";
 
 const DynamicFormLazy = ({ fields }) => {
   /**
@@ -15,32 +14,11 @@ const DynamicFormLazy = ({ fields }) => {
     }, {});
   });
 
-  const [response, setResponse] = React.useState(null);
-
   /**
    * Manipulador do submit form
    */
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const url = "https://ranekapi.origamid.dev/json/api/usuario";
-    const options = {
-      method: "POST",
-      Headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    };
-    fetch(url, options)
-      .then((response) => {
-        console.log(response);
-        response.json();
-      })
-      .then((json) => {
-        setResponse(json);
-        console.log(json);
-        setTimeout(() => setResponse(null), 3000);
-      });
   };
 
   /* Render */
@@ -61,10 +39,6 @@ const DynamicFormLazy = ({ fields }) => {
           </div>
         ))}
       </form>
-
-      {response && response.message && (
-        <div>{response.message || "Nothing to talk"}</div>
-      )}
     </>
   );
 };
