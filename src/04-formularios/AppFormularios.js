@@ -14,6 +14,7 @@ import CheckboxMultipleOp from "./05-checkbox/03-exemplo/CheckboxMultipleOp";
 import ExemploComponenteInput from "./06-componentes/01-Input/ExemploComponenteInput";
 import ExemploComponenteSelect from "./06-componentes/02-Select/ExemploComponenteSelect";
 import ExemploComponenteRadio from "./06-componentes/03-Radio/ExemploComponenteRadio";
+import ExemploComponenteCheckbox from "./06-componentes/04-Checkbox/ExemploComponenteCheckbox";
 
 export default function AppFormularios() {
   return (
@@ -57,7 +58,9 @@ export default function AppFormularios() {
       {/* Processo de Componentizaçao - Select */}
       {/* <ExemploComponenteSelect /> */}
       {/* Processo de Componentizaçao - Radio*/}
-      <ExemploComponenteRadio />
+      {/* <ExemploComponenteRadio /> */}
+      {/* Processo de Componentizaçao - Checkbox*/}
+      <ExemploComponenteCheckbox />
     </section>
   );
 }

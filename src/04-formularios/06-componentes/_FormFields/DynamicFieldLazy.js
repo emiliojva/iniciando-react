@@ -29,6 +29,9 @@ const DynamicFieldLazy = ({ attributes, form, setForm, ...props }) => {
     case "radio":
       Component = "Radio";
       break;
+    case "checkbox":
+      Component = "Checkbox";
+      break;
     case "button":
     case "submit":
     case "reset":
