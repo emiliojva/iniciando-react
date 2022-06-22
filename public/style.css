@@ -103,3 +103,12 @@ hr {
   border: 2px solid black;
   margin: 2rem auto;
 }
+
+input[type=radio] {
+  width: auto;
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}

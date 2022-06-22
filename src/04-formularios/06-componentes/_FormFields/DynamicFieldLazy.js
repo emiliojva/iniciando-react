@@ -1,10 +1,18 @@
 import React, { Suspense } from "react";
+import useFormValidation from "../../07-useForm/useFormValidation";
 
-const DynamicFieldLazy = ({ attributes, form, setForm, ...props }) => {
+const DynamicFieldLazy = ({
+  attributes,
+  form,
+  setForm,
+  onError,
+  onSuccess,
+  ...props
+}) => {
   /**
    * Variaveis usadas em locais diferentes
    */
-  const { id, type } = attributes;
+  const { id, type, validation } = attributes;
 
   /**
    * Capitalize emilio => Emilio
@@ -42,6 +50,9 @@ const DynamicFieldLazy = ({ attributes, form, setForm, ...props }) => {
       break;
   }
 
+  // const validationField = useForm(type);
+  // console.log(validationField);
+
   /**
    * Esse trecho de código com useMemo. Diz para o React nao fazer o import novamente.
    * E sim, usar o primeiro Component gerado
@@ -49,17 +60,48 @@ const DynamicFieldLazy = ({ attributes, form, setForm, ...props }) => {
   const DynamicField = React.useMemo(() => {
     // mesmo que -> window[id]= DynamicField;
     return React.lazy(() => {
-      return import(`./${Component}`);
+      return import(`./${Component}`); // importa componente pelo switch/case acima
     });
   }, [Component]);
 
   /**
+   * Validação
+   */
+
+  const { value, error, onChange, onBlur } = useFormValidation(validation);
+  // console.log(id, validationField);
+
+  /**
    * Handle onChange - Escuta mudança de valores nos Fields
    */
-  const handleChangeField = ({ target }) => {
-    const { id, value } = target;
+  const handleChangeField = (event) => {
+    if (validation) {
+      if (onChange) onChange(event);
+    }
+
+    const { id, value } = event.target;
     setForm({ ...form, [id]: value });
   };
+
+  React.useEffect(() => {
+    console.log(error);
+
+    /**
+     * Eventos baseados em estados para sinalizar se o campo passou na validação
+     */
+    if (error !== null) {
+      if (!!error) {
+        onError({ ref, attributes, error });
+      }
+    } else {
+      onSuccess({ ref, attributes });
+    }
+  }, [error]);
+
+  /**
+   * Retorna somente se o memo já tiver capturado instancia do import
+   */
+  if (DynamicField === null) return null;
 
   /**
    * Retorna um Fieldset. Label e Field de acordo com valor passado no type
@@ -71,10 +113,13 @@ const DynamicFieldLazy = ({ attributes, form, setForm, ...props }) => {
           id={id}
           name={id}
           onChange={handleChangeField}
+          onBlur={onBlur}
           ref={ref}
+          value={value}
           {...props}
           {...attributes}
         />
+        {error}
       </Suspense>
     </>
   );

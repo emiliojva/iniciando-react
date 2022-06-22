@@ -15,6 +15,8 @@ import ExemploComponenteInput from "./06-componentes/01-Input/ExemploComponenteI
 import ExemploComponenteSelect from "./06-componentes/02-Select/ExemploComponenteSelect";
 import ExemploComponenteRadio from "./06-componentes/03-Radio/ExemploComponenteRadio";
 import ExemploComponenteCheckbox from "./06-componentes/04-Checkbox/ExemploComponenteCheckbox";
+import ExemploUseFormValidation from "./07-useForm/ExemploUseFormValidation";
+import AppDesafio from "./08-Desafio/AppDesafio";
 
 export default function AppFormularios() {
   return (
@@ -60,7 +62,11 @@ export default function AppFormularios() {
       {/* Processo de Componentizaçao - Radio*/}
       {/* <ExemploComponenteRadio /> */}
       {/* Processo de Componentizaçao - Checkbox*/}
-      <ExemploComponenteCheckbox />
+      {/* <ExemploComponenteCheckbox /> */}
+      {/* Processo de Componentizaçao - Use Form Validations*/}
+      {/* <ExemploUseFormValidation /> */}
+      {/* Processo de Componentizaçao - Use Form Validations*/}
+      <AppDesafio />
     </section>
   );
 }
